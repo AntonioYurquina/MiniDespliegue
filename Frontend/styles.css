@@ -1,13 +1,23 @@
+/* Estilos básicos para la tabla */
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
 th, td {
-    padding: 8px;
-    text-align: left;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
 }
 
+/* Estilo para los lotes destacados */
 .destacado {
-    background-color: yellow;
+    background-color: #f5f5a2;
+    font-weight: bold;
+}
+
+/* Estilo de la fila total */
+tfoot td {
+    font-weight: bold;
 }
