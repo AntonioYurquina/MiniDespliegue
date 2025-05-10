@@ -21,7 +21,7 @@ def enviar_datos():
             try:
                 # Generar datos de prueba
                 payload = {
-                    "id_sensor": random.randint(1, 12),
+                    "id_sensor": random.randint(1, 10),
                     "medicion": random.randint(1, 1024),
                     "fecha": generar_fecha_aleatoria()
                 }
