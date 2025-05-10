@@ -21,7 +21,7 @@ def enviar_datos():
             try:
                 # Generar datos de prueba
                 payload = {
-                    "id_sensor": random.randint(1, 10),
+                    "id_sensor": random.randint(1, 12),
                     "medicion": random.randint(1, 1024),
                     "fecha": generar_fecha_aleatoria()
                 }
@@ -35,7 +35,7 @@ def enviar_datos():
             except Exception as error:
                 print(f"[❌] Error: {str(error)}")
             
-            time.sleep(1)
+            time.sleep(2)
 
 if __name__ == '__main__':
     enviar_datos()
