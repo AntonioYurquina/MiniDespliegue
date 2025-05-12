@@ -2,7 +2,7 @@
 async function obtenerYProcesarLotes() {
     try {
         // Realizar la solicitud al servidor remoto que devuelve los datos de los lotes
-        const response = await fetch('https://mi-servidor.com/api/lotes');  // Cambia la URL por la de tu servidor
+        const response = await fetch('http://149.50.147.99:5000/api/lotes');  // Cambia la URL por la de tu servidor
         
         // Verificar si la respuesta fue exitosa
         if (!response.ok) {
