@@ -1,0 +1,44 @@
+import pymysql
+from datetime import datetime
+
+# Configuración de la conexión a la base de datos
+db_config = {
+    'user': 'Nicolas-Robledo',  # Usuario que creaste
+    'password': '44565062',  # Contraseña que configuraste
+    'host': 'localhost',
+    'database': 'mediciones_db'
+}
+
+def insertar_datos(id, medicion, fecha):
+    conn = None
+    cursor = None
+    try:
+        # Conectar a la base de datos
+        conn = pymysql.connect(
+            host=db_config['host'],
+            user=db_config['user'],
+            password=db_config['password'],
+            database=db_config['database'],
+            charset='utf8mb4',
+            cursorclass=pymysql.cursors.Cursor
+        )
+        cursor = conn.cursor()
+
+        # Insertar los datos en la tabla
+        query = "INSERT INTO mediciones (id, medicion, fecha) VALUES (%s, %s, %s)"
+        cursor.execute(query, (id, medicion, fecha))
+
+        conn.commit()
+        print(f"Datos insertados: ID={id}, Medición={medicion}, Fecha={fecha}")
+    except pymysql.MySQLError as err:
+        print(f"Error: {err}")
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
+
+# Ejecutar ejemplo de inserción
+fecha_actual = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+insertar_datos(1, 512, fecha_actual)
+
